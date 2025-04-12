@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {useContext} from "react";
+import {CountContextProvider , CountContext } from "./Context/Countercontext";
 
 function App(){
   const [isLightOn,setIsLightOn] = useState(false)
@@ -10,6 +12,9 @@ function App(){
   
   return (
     <div>
+    <CountContextProvider>
+      <Parent />
+    </CountContextProvider>
     <Room isLightOn={isLightOn} toggle={toggle}/>
     </div>
   )
